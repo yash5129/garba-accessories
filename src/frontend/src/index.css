@@ -1,0 +1,228 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("/assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
+  font-style: italic;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --font-display: "Fraunces", Georgia, serif;
+    --font-body: "General Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-accent: "Instrument Serif", Georgia, serif;
+    --font-mono: ui-monospace, "SFMono-Regular", monospace;
+    --radius: 0.75rem;
+
+    /* Warm cream parchment base */
+    --background: 0.962 0.018 85;
+    --foreground: 0.275 0.052 42;
+
+    --card: 0.988 0.01 88;
+    --card-foreground: 0.275 0.052 42;
+    --popover: 0.992 0.008 88;
+    --popover-foreground: 0.275 0.052 42;
+
+    /* Deep maroon — headings, primary brand */
+    --primary: 0.375 0.135 22;
+    --primary-foreground: 0.972 0.014 85;
+
+    /* Marigold orange — CTA / action accent */
+    --secondary: 0.905 0.045 72;
+    --secondary-foreground: 0.335 0.07 45;
+
+    --muted: 0.935 0.024 80;
+    --muted-foreground: 0.505 0.038 55;
+
+    /* Peacock green — secondary accent */
+    --accent: 0.505 0.115 152;
+    --accent-foreground: 0.972 0.014 152;
+
+    --destructive: 0.545 0.195 27;
+    --destructive-foreground: 0.975 0.01 27;
+
+    --success: 0.525 0.125 150;
+    --warning: 0.745 0.145 78;
+
+    --border: 0.885 0.03 78;
+    --input: 0.885 0.03 78;
+    --ring: 0.375 0.135 22;
+
+    /* Antique gold — highlights, pearl/gold details */
+    --gold: 0.795 0.135 86;
+    --gold-foreground: 0.335 0.07 45;
+
+    --chart-1: 0.375 0.135 22;
+    --chart-2: 0.505 0.115 152;
+    --chart-3: 0.685 0.165 55;
+    --chart-4: 0.795 0.135 86;
+    --chart-5: 0.585 0.115 340;
+
+    --sidebar: 0.955 0.02 84;
+    --sidebar-foreground: 0.275 0.052 42;
+    --sidebar-primary: 0.375 0.135 22;
+    --sidebar-primary-foreground: 0.972 0.014 85;
+    --sidebar-accent: 0.905 0.045 72;
+    --sidebar-accent-foreground: 0.335 0.07 45;
+    --sidebar-border: 0.885 0.03 78;
+    --sidebar-ring: 0.375 0.135 22;
+
+    --gradient-primary: linear-gradient(
+      135deg,
+      oklch(0.4 0.14 24),
+      oklch(0.34 0.12 18)
+    );
+    --gradient-warm: linear-gradient(
+      180deg,
+      oklch(0.975 0.014 86),
+      oklch(0.945 0.026 80)
+    );
+    --gradient-gold: linear-gradient(
+      120deg,
+      oklch(0.83 0.13 88),
+      oklch(0.72 0.15 70)
+    );
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 0.185 0.028 40;
+    --foreground: 0.945 0.016 82;
+
+    --card: 0.235 0.03 38;
+    --card-foreground: 0.945 0.016 82;
+    --popover: 0.235 0.03 38;
+    --popover-foreground: 0.945 0.016 82;
+
+    --primary: 0.735 0.125 84;
+    --primary-foreground: 0.185 0.028 40;
+
+    --secondary: 0.285 0.036 40;
+    --secondary-foreground: 0.905 0.016 82;
+
+    --muted: 0.285 0.036 40;
+    --muted-foreground: 0.665 0.026 70;
+
+    --accent: 0.665 0.115 152;
+    --accent-foreground: 0.185 0.028 40;
+
+    --destructive: 0.605 0.185 26;
+    --destructive-foreground: 0.945 0.016 82;
+
+    --success: 0.645 0.125 150;
+    --warning: 0.775 0.135 80;
+
+    --border: 0.315 0.032 42;
+    --input: 0.315 0.032 42;
+    --ring: 0.735 0.125 84;
+
+    --gold: 0.775 0.125 86;
+    --gold-foreground: 0.185 0.028 40;
+
+    --chart-1: 0.735 0.125 84;
+    --chart-2: 0.665 0.115 152;
+    --chart-3: 0.705 0.145 55;
+    --chart-4: 0.775 0.125 86;
+    --chart-5: 0.665 0.115 340;
+
+    --sidebar: 0.215 0.03 40;
+    --sidebar-foreground: 0.945 0.016 82;
+    --sidebar-primary: 0.735 0.125 84;
+    --sidebar-primary-foreground: 0.185 0.028 40;
+    --sidebar-accent: 0.285 0.036 40;
+    --sidebar-accent-foreground: 0.905 0.016 82;
+    --sidebar-border: 0.315 0.032 42;
+    --sidebar-ring: 0.735 0.125 84;
+
+    --gradient-primary: linear-gradient(
+      135deg,
+      oklch(0.42 0.13 24),
+      oklch(0.32 0.1 18)
+    );
+    --gradient-warm: linear-gradient(
+      180deg,
+      oklch(0.215 0.03 40),
+      oklch(0.185 0.028 40)
+    );
+    --gradient-gold: linear-gradient(
+      120deg,
+      oklch(0.8 0.12 88),
+      oklch(0.7 0.14 70)
+    );
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  .font-accent {
+    font-family: var(--font-accent);
+    font-style: italic;
+  }
+  .bg-gradient-primary {
+    background-image: var(--gradient-primary);
+  }
+  .bg-gradient-warm {
+    background-image: var(--gradient-warm);
+  }
+  .bg-gradient-gold {
+    background-image: var(--gradient-gold);
+  }
+  .text-gradient-gold {
+    background-image: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .paper-texture {
+    background-image: radial-gradient(
+      oklch(0.86 0.03 78 / 0.35) 1px,
+      transparent 1px
+    );
+    background-size: 18px 18px;
+  }
+  .shadow-polaroid {
+    box-shadow: 0 1px 2px oklch(0.35 0.06 45 / 0.1), 0 10px 24px -8px
+      oklch(0.35 0.06 45 / 0.22), 0 22px 44px -20px oklch(0.35 0.06 45 / 0.2);
+  }
+  .shadow-card-warm {
+    box-shadow: 0 1px 2px oklch(0.35 0.06 45 / 0.06), 0 6px 16px -6px
+      oklch(0.35 0.06 45 / 0.14);
+  }
+  .shadow-elevated {
+    box-shadow: 0 2px 4px oklch(0.35 0.06 45 / 0.08), 0 14px 32px -10px
+      oklch(0.35 0.06 45 / 0.22);
+  }
+  .shadow-gold-glow {
+    box-shadow: 0 6px 20px -6px oklch(0.795 0.135 86 / 0.55);
+  }
+}

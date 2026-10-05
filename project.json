@@ -1,0 +1,21 @@
+{
+  "overview": "A festive Navratri/Garba accessories storefront that turns collage photos into individual product cards with owner-set prices.",
+  "features": [
+    "Browse cropped product photos from the uploaded collages",
+    "Search and filter products by category",
+    "View product details with photo, description, and price",
+    "Owner signs in to set a price for each item",
+    "Mark items available or sold out",
+    "Upload replacement product photos",
+    "Products without a price show 'Price on request'"
+  ],
+  "category": "e-commerce",
+  "tags": [
+    "accessories",
+    "handmade",
+    "navratri",
+    "storefront",
+    "catalog"
+  ],
+  "last_updated": "2026-10-04T17:01:58.317Z"
+}

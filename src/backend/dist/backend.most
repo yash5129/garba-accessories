@@ -1,0 +1,89 @@
+// Version: 4.0.0
+type AccessControlState__201339279 =
+  {
+    var adminAssigned : Bool;
+    userRoles : Map__230067015<Principal, UserRole__91647283>
+  };
+type Category__8224233 =
+  {
+    #beaniesAndHats;
+    #braidedAccessories;
+    #hairBows;
+    #hairClips;
+    #hairFlowers;
+    #hairstyleLooks
+  };
+type Data__44217153<K, V> = {var count : Nat__227979830; kvs : [var ?(K, V)]};
+type Internal__283199666<K, V> =
+  {children : [var ?Node__204828119<K, V>]; data : Data__44217153<K, V>};
+type Leaf__598469445<K, V> = {data : Data__44217153<K, V>};
+type Map__230067015<K, V> = Map__405889023<K, V>;
+type Map__405889023<K, V> = Map__603270868<K, V>;
+type Map__603270868<K, V> =
+  {var root : Node__204828119<K, V>; var size : Nat__227979830};
+type Nat__227979830 = Nat__920180692;
+type Nat__920180692 = Nat;
+type NewActor__793188255 =
+  {
+    accessControlState : AccessControlState__201339279;
+    products : Map__230067015<Text, Product__395579890>;
+    productsState : {var nextId : Nat}
+  };
+type Node__204828119<K, V> =
+  {#internal : Internal__283199666<K, V>; #leaf : Leaf__598469445<K, V>};
+type OldActor__904324871 = {};
+type PriceInPaise__308842461 = PriceInPaise__967421100;
+type PriceInPaise__967421100 = Nat;
+type ProductId__160010635 = Text;
+type ProductId__442338476 = ProductId__160010635;
+type Product__395579890 =
+  {
+    available : Bool;
+    category :
+      {
+        #beaniesAndHats;
+        #braidedAccessories;
+        #hairBows;
+        #hairClips;
+        #hairFlowers;
+        #hairstyleLooks
+      };
+    createdAt : Int;
+    description : Text;
+    id : Text;
+    imageKey : Text;
+    name : Text;
+    priceInPaise : ?Nat;
+    sortOrder : Nat
+  };
+type Product__750902660 =
+  {
+    available : Bool;
+    category : Category__8224233;
+    createdAt : Timestamp__77860887;
+    description : Text;
+    id : ProductId__442338476;
+    imageKey : Text;
+    name : Text;
+    priceInPaise : ?PriceInPaise__308842461;
+    sortOrder : Nat
+  };
+type Timestamp__301639476 = Int;
+type Timestamp__77860887 = Timestamp__301639476;
+type UserRole__91647283 = {#admin; #guest; #user};
+{
+  "20261004_000000" : OldActor__904324871 -> NewActor__793188255
+}
+actor  {
+  stable accessControlState :
+    {
+      var adminAssigned : Bool;
+      userRoles : Map__230067015<Principal, UserRole__91647283>
+    };
+  stable products :
+    {
+      var root : Node__204828119<ProductId__442338476, Product__750902660>;
+      var size : Nat__227979830
+    };
+  stable productsState : {var nextId : Nat}
+};
